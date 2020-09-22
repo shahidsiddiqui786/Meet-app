@@ -1,6 +1,5 @@
 import React from 'react';
 import ScrollToBottom from 'react-scroll-to-bottom';
-import onlineIcon from '../../icons/onlineIcon.png';
 import './TextContainer.css';
 
 const TextContainer = ({ room, users }) => (

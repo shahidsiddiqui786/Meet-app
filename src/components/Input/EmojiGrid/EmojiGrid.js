@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Emoji from './Emoji/Emoji'
 
 import './EmojiGrid.css';

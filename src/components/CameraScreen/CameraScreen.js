@@ -33,7 +33,7 @@ import './CameraScreen.css'
             <div className="image-screen">
               <img
                 className="screenshot"
-                src={imgSrc}
+                src={imgSrc} alt={imgSrc}
               />
               <div className="btn-grid">
                   <button className="cancel-btn" role="img" onClick={() => setCameraMode(false)}>cancel</button>

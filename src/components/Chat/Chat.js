@@ -21,7 +21,6 @@ const Chat = ({ location }) => {
   const [users, setUsers] = useState('');
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
-  const [photo, setPhoto] = useState('');
   const [image, setImage] = useState(null);
   const [picture, setPicture] = useState('');
   const [cameraMode, setCameraMode] = useState(false);
@@ -126,7 +125,6 @@ const Chat = ({ location }) => {
     .then(res=>res.json())
     .then(data=>{
       console.log(data)
-      setPhoto(data.picture)
       alert(`${data.name} , Your data has been sent to database`)
     })
   }
