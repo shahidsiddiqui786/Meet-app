@@ -1,0 +1,82 @@
+.image-screen {
+    display:flex;
+    height:100vh;
+    width:100vw;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    background:rgb(0, 23, 36);
+}
+@media screen and ( max-width:600px ){
+  .screenshot {
+      width:100vw !important;
+  }
+}
+.camera-screen {
+    display:flex;
+    height:100vh;
+    flex-direction:column;
+    background:rgb(0, 23, 36);
+}
+.camera-btn {
+      font-size:24px;
+      width:fit-content;
+      margin: 0 auto;
+      margin-top:10px;
+      background: gray; 
+      border:none;
+      border-radius:0.25em;
+      outline:none;
+      cursor:pointer;
+    }
+.screenshot {
+      height:60vh;
+      width:60vw;
+      margin-top:100px;
+}
+.btn-grid {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+    margin-top:30px;
+}
+ .send-picture-btn {
+     background:none;
+     border:none;
+     outline:none;
+     font-size:24px;
+     border-radius:0.5rem;
+     color:white;
+     text-transform:capitalize;
+ }
+ .cancel-btn {
+     background:none;
+     border:none;
+     outline:none;
+     font-size:24px;
+     border-radius:0.5rem;
+     color:white;
+     text-transform:capitalize;
+ }
+ .retake-btn {
+     background:none;
+     border:none;
+     outline:none;
+     font-size:24px;
+     border-radius:0.5rem;
+     color:white;
+     text-transform:capitalize;
+ }
+ .send-picture-btn:hover {
+     cursor:pointer;
+     background:red;
+ }
+ .cancel-btn:hover {
+     cursor:pointer;
+     background:red;
+ }
+ .retake-btn:hover {
+     cursor:pointer;
+     background:red;
+ }
+
