@@ -136,7 +136,7 @@ const Chat = ({ location }) => {
       cameraMode
       ? (
   
-       <CameraScreen sendPhoto={sendPhoto} picture={picture} setImage={setImage} submitData={submitData} handleUpload={handleUpload} setCameraMode={setCameraMode}></CameraScreen>
+       <CameraScreen sendPhoto={sendPhoto}  setImage={setImage} submitData={submitData} handleUpload={handleUpload} setCameraMode={setCameraMode}></CameraScreen>
         
       )
       : (

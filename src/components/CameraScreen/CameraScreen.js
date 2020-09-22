@@ -5,7 +5,7 @@ import './CameraScreen.css'
 
  
 
-  const CameraScreen = ({ sendPhoto, picture, setImage, submitData, handleUpload,  setCameraMode }) => {
+  const CameraScreen = ({ sendPhoto,  setImage, submitData, handleUpload,  setCameraMode }) => {
   const webcamRef = useRef(null);
   const [imgSrc, setImgSrc] = useState(null);
   const [sendMode, setSendMode] = useState(false);
@@ -18,6 +18,7 @@ import './CameraScreen.css'
     setImage(imageSrc);
     setSendMode(true);
     console.log("photo taken")
+    // eslint-disable-next-line 
   }, [webcamRef, setImgSrc]);
 
   const upload = async() => {
