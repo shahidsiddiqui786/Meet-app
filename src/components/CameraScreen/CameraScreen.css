@@ -5,18 +5,18 @@
     justify-content:center;
     align-items:center;
     flex-direction:column;
-    background:rgb(0, 23, 36);
+    background:rgb(22, 136, 202);
 }
 @media screen and ( max-width:600px ){
   .screenshot {
-      width:100vw !important;
+      width:90vw !important;
   }
 }
 .camera-screen {
     display:flex;
     height:100vh;
     flex-direction:column;
-    background:rgb(0, 23, 36);
+    background:rgb(31, 117, 167);
 }
 .camera-btn {
       font-size:24px;
@@ -31,7 +31,7 @@
     }
 .screenshot {
       height:60vh;
-      width:60vw;
+      width:40vw;
       margin-top:100px;
 }
 .btn-grid {

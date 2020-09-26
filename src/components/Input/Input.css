@@ -1,10 +1,10 @@
 #send-form {
   display: flex;
-  background:rgb(34, 43, 48);
+  background:rgb(6, 26, 82);
   justify-content:space-between;
 }
  #send-container {
-      background-color: #33383b;
+      background-color: #1f455e;
       display: flex;
       margin-bottom: 5px;
       border-radius: 20px;
@@ -55,6 +55,7 @@
       outline: none;
       border: none;
       font-size: 20px;
+      color:white;
     }
 
 input:focus, textarea:focus, select:focus{

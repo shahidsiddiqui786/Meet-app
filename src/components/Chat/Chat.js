@@ -165,7 +165,7 @@ const Chat = ({ location }) => {
               <ReactTooltip id="other" place="top" effect="solid">
                    Features,Coming Soon!
               </ReactTooltip>
-              <ReactTooltip id="app" place="bottom" type="warning" multiline="true" effect="solid">
+              <ReactTooltip id="app" place="bottom" type="info" multiline="true" effect="solid">
                    this web app is developed and<br></br>
                     design with ❤️ by Shahid Siddiqui,
                     <br></br>copyright&copy;shahidSiddiqui 2020<br></br>
