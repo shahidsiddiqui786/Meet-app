@@ -23,6 +23,28 @@
   background: rgb(6, 3, 51);
   width:100%;
 }
+.user-profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.photo-profile {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: x-large;
+}
+.user-name {
+  margin-right: 0;
+  margin-left: 4em;
+}
 
 .activeItem hr {
   width:100%;

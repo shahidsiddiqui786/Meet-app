@@ -12,6 +12,17 @@
       width:90vw !important;
   }
 }
+.uploading {
+    position: absolute;
+    top:50vh;
+    opacity: 0.5;
+    color:red;
+}
+.uploaded {
+    position: absolute;
+    top:50vh;
+    color:greenyellow;
+}
 .camera-screen {
     display:flex;
     height:100vh;

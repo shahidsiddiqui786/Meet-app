@@ -2,7 +2,8 @@ import React from 'react';
 import ScrollToBottom from 'react-scroll-to-bottom';
 import './TextContainer.css';
 
-const TextContainer = ({ room, users }) => (
+const TextContainer = ({  users }) => {
+        return (
           users
             ? (
             <ScrollToBottom >
@@ -10,8 +11,13 @@ const TextContainer = ({ room, users }) => (
                 <div className="activeContainer">
                     {users.map(({name}) => (
                       <div key={name} className="activeItem">
-                        <div key={name} className="user-name">
-                         {name}
+                        <div className="user-profile">
+                          <div key={name.charAt(0)} className="photo-profile">
+                            <strong>{name.charAt(0)}</strong>
+                          </div>
+                          <div key={name} className="user-name">
+                          {name}
+                          </div>
                         </div>
                         <hr></hr>
                       </div>
@@ -21,6 +27,8 @@ const TextContainer = ({ room, users }) => (
             </ScrollToBottom>
             )
             : null
-);
+          )
+      }
+
 
 export default TextContainer;

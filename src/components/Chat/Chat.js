@@ -106,12 +106,13 @@ const Chat = ({ location }) => {
             console.log(datasa.url)
             setPicture(datasa.url)
             console.log(picture)
+            console.log(datasa.url) 
       }
 
 
 
-  const submitData = async() => {
-    await fetch("http://localhost:5000/send-data", {
+   const submitData = () => {
+      fetch("http://localhost:5000/send-data", {
       method:"post",
       headers:{
         'Content-Type': 'application/json'
@@ -124,10 +125,10 @@ const Chat = ({ location }) => {
     })
     .then(res=>res.json())
     .then(data=>{
-      console.log(data)
-      alert(`${data.name} , Your data has been sent to database`)
+      console.log("data")
+      // alert(`${data.name} , Your data has been sent to database`)
     })
-  }
+   }
 
 
   
@@ -153,10 +154,10 @@ const Chat = ({ location }) => {
 
               </div>
               <div className="joining-info">
-                  <h3>People in meeting</h3>
+                  <h3>People in meeting room {room}</h3>
               </div>
               {/* <SearchBar /> */}
-              <UserContainer room={room} users={users}/>
+              <UserContainer  users={users}/>
           </div>
           <div className="message-container">
               <InfoBar room={room} />
