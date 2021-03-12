@@ -1,5 +1,5 @@
 
-This is the basically a group chat web app.
+This is Front End Of  a group chat web app.
 where you can instantly make a group by only sharing roomname
 to others, and  can have group chat and photos exchange too.
 
