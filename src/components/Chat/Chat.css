@@ -6,6 +6,7 @@
   width:100vw;
   background:rgb(27, 118, 170);
   color:#d4d5d7;
+  transition: box-shadow .3s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 .message-container {
@@ -15,6 +16,7 @@
   border-radius: 8px;
   height: 100vh;
   width: 70%;
+  transition: box-shadow .3s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 .user-container {
@@ -23,6 +25,7 @@
   width:30%;
   height:100vh;
   border-right: 0.5em solid #3a2663;
+  transition: box-shadow .3s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 .other {
@@ -37,6 +40,7 @@
   justify-content: center;
   align-items: center;
   margin: 0;
+  transition: box-shadow .3s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 .users-info {
   display: flex; 
@@ -44,6 +48,7 @@
   justify-content: center; 
   align-items: center; 
   margin: 0;
+  transition: box-shadow .3s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 @media (min-width: 320px) and (max-width: 480px) {

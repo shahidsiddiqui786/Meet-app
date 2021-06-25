@@ -154,7 +154,7 @@ const Input = (
                 role="img" 
                 onClick={e => UploadMode(e)}
               >
-                <img src={darkTheme ? imgWIcon : imgBIcon} alt="photo" />
+                <img src={darkTheme ? imgWIcon : imgBIcon} alt="photoupload" />
               </button>
 
               <button 

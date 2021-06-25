@@ -1,6 +1,7 @@
 .user-list {
   display: flex;
   flex-direction: column;
+  transition: box-shadow .3s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 .activeContainer {
@@ -9,6 +10,7 @@
   align-items: center;
   margin-bottom: 50%;
   width: 100%;
+  transition: box-shadow .3s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 .activeItem {
@@ -17,6 +19,7 @@
   align-items: center;
   padding:1.0em;
   width:100%;
+  transition: box-shadow .3s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 .user-profile {
   display: flex;

@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 import Emoji from './Emoji/Emoji'
 
-import './EmojiGrid.css';
+import './EmojiGrid.css'
 
-let emoji = require("node-emoji");
+let emoji = require("node-emoji")
 
 
 const EmojiGrid = ({  addEmojiToInput }) => {
@@ -17,4 +17,4 @@ const EmojiGrid = ({  addEmojiToInput }) => {
 )
 
 }
-export default EmojiGrid;
+export default EmojiGrid

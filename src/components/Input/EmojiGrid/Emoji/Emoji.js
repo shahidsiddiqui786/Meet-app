@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 
-import './Emoji.css';
+import './Emoji.css'
 
 
 const Emoji = ({  addEmojiToInput, emoji }) => {
@@ -15,4 +15,4 @@ const Emoji = ({  addEmojiToInput, emoji }) => {
 )
 
 }
-export default Emoji;
+export default Emoji

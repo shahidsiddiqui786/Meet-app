@@ -1,65 +1,65 @@
-import React, { useState, useEffect } from "react";
-import queryString from 'query-string';
-import io from "socket.io-client";
-import ReactTooltip from "react-tooltip";
+import React, { useState, useEffect } from "react"
+import queryString from 'query-string'
+import io from "socket.io-client"
+//import ReactTooltip from "react-tooltip"
 
 
 import CameraScreen from '../Media/CameraScreen'
 import ImageUpload from '../Media/ImageUpload'
-import UserContainer from '../UserContainer/UserContainer';
-import Messages from '../Messages/Messages';
-import InfoBar from '../InfoBar/InfoBar';
-import Input from '../Input/Input';
+import UserContainer from '../UserContainer/UserContainer'
+import Messages from '../Messages/Messages'
+import InfoBar from '../InfoBar/InfoBar'
+import Input from '../Input/Input'
 import { useTheme } from '../Provider/ThemeContext'
 
 
-import './Chat.css';
+import './Chat.css'
 
-let socket;
+let socket
 
 const Chat = ({ location }) => {
-  const [name, setName] = useState('');
-  const [room, setRoom] = useState('');
-  const [users, setUsers] = useState('');
-  const [message, setMessage] = useState('');
-  const [messages, setMessages] = useState([]);
-  const [image, setImage] = useState(null);
-  const [picture, setPicture] = useState('');
-  const [mediaMode, setMediaMode] = useState(false);
-  const [cameraMode, setCameraMode] = useState(false);
+  const [name, setName] = useState('')
+  const [room, setRoom] = useState('')
+  const [users, setUsers] = useState('')
+  const [message, setMessage] = useState('')
+  const [messages, setMessages] = useState([])
+  const [image, setImage] = useState(null)
+  const [picture, setPicture] = useState('')
+  const [mediaMode, setMediaMode] = useState(false)
+  const [cameraMode, setCameraMode] = useState(false)
 
   // const ENDPOINT = 'http://localhost:5000/';
-   const ENDPOINT = 'https://real-chat-app-by-shahid.herokuapp.com/';
+   const ENDPOINT = 'https://real-chat-app-by-shahid.herokuapp.com/'
 
   useEffect(() => {
-    const { name, room } = queryString.parse(location.search);
+    const { name, room } = queryString.parse(location.search)
 
-    socket = io(ENDPOINT);
+    socket = io(ENDPOINT)
     if(!name||!room){
       alert("you must provide a valid name & room to enter for chat!")
       window.location.href="./"
     }
 
-    setRoom(room);
+    setRoom(room)
     setName(name)
 
     socket.emit('join', { name, room }, (error) => {
       if(error) {
-        alert(error);
+        alert(error)
         window.location.href="./"
       }
-    });
-  }, [ENDPOINT, location.search]);
+    })
+  }, [ENDPOINT, location.search])
   
   useEffect(() => {
     socket.on('message', message => {
-        setMessages(messages => [ ...messages, message ]);
-    });
+        setMessages(messages => [ ...messages, message ])
+    })
     
     socket.on("roomData", ({ users }) => {
       setUsers(users)
-    });
-   }, []);
+    })
+   }, [])
 
    useEffect(() => {
     socket.on('media', message => {
@@ -77,13 +77,13 @@ const Chat = ({ location }) => {
       event.preventDefault()
     }
     if(message) {
-      socket.emit('sendMessage', message, () => setMessage(''));
+      socket.emit('sendMessage', message, () => setMessage(''))
     }
   }
 
   const sendPhoto = () => {
     if(picture) {
-      socket.emit('sendPhoto', picture, () => setPicture(''));
+      socket.emit('sendPhoto', picture, () => setPicture(''))
     }
   }
 
@@ -203,4 +203,4 @@ const Chat = ({ location }) => {
   )
 }
 
-export default Chat;
+export default Chat
