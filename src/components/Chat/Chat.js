@@ -4,13 +4,11 @@ import io from "socket.io-client";
 import ReactTooltip from "react-tooltip";
 
 
-import CameraScreen from '../Media/CameraScreen'
-import ImageUpload from '../Media/ImageUpload'
+import CameraScreen from '../CameraScreen/CameraScreen';
 import UserContainer from '../UserContainer/UserContainer';
 import Messages from '../Messages/Messages';
 import InfoBar from '../InfoBar/InfoBar';
 import Input from '../Input/Input';
-import { useTheme } from '../Provider/ThemeContext'
 
 
 import './Chat.css';
@@ -25,7 +23,6 @@ const Chat = ({ location }) => {
   const [messages, setMessages] = useState([]);
   const [image, setImage] = useState(null);
   const [picture, setPicture] = useState('');
-  const [mediaMode, setMediaMode] = useState(false);
   const [cameraMode, setCameraMode] = useState(false);
 
   // const ENDPOINT = 'http://localhost:5000/';
@@ -57,31 +54,34 @@ const Chat = ({ location }) => {
     });
     
     socket.on("roomData", ({ users }) => {
-      setUsers(users)
+      setUsers(users);
     });
    }, []);
 
    useEffect(() => {
     socket.on('media', message => {
-        setMessages(messages => [ ...messages, message ])
-    })
+        setMessages(messages => [ ...messages, message ]);
+    });
     
     socket.on("roomData", ({ users }) => {
-      setUsers(users)
-    })
-   }, [])
+      setUsers(users);
+    });
+   }, []);
    
 
   const sendMessage = (event) => {
     if(event){
-      event.preventDefault()
+          event.preventDefault();
     }
+   
+
     if(message) {
       socket.emit('sendMessage', message, () => setMessage(''));
     }
   }
 
   const sendPhoto = () => {
+   
     if(picture) {
       socket.emit('sendPhoto', picture, () => setPicture(''));
     }
@@ -89,118 +89,97 @@ const Chat = ({ location }) => {
 
     
 
-  const handleUpload = async()=>{
-    const data = new FormData()
-    data.append('file',image)
-    data.append('upload_preset','chatapp')
-    data.append("cloud_name","shahiba")
+    const handleUpload = async()=>{
+            const data = new FormData()
+            data.append('file',image)
+            data.append('upload_preset','chatapp')
+            data.append("cloud_name","shahiba")
 
-    const datasa =  await fetch("https://api.cloudinary.com/v1_1/shahiba/image/upload",{
-          method:"post",
-          body:data
+          const datasa =  await fetch("https://api.cloudinary.com/v1_1/shahiba/image/upload",{
+                method:"post",
+                body:data
+            }).then(res=>res.json())
+            .catch(err=>{
+                console.log(err);
+                alert("error while uploading")
+            })
+            console.log(datasa.url)
+            setPicture(datasa.url)
+            console.log(picture)
+            console.log(datasa.url) 
+      }
+
+
+
+   const submitData = () => {
+      fetch("http://localhost:5000/send-data", {
+      method:"post",
+      headers:{
+        'Content-Type': 'application/json'
+      },
+      body:JSON.stringify({
+        name,
+        room,
+        picture
+      })
     })
     .then(res=>res.json())
-    .catch(err=>{
-          alert("error while uploading")
+    .then(data=>{
+      console.log("data")
+      // alert(`${data.name} , Your data has been sent to database`)
     })
-    setPicture(datasa.url) 
-  }
-  // const submitData = () => {
-  //     fetch("http://localhost:5000/send-data", {
-  //     method:"post",
-  //     headers:{
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body:JSON.stringify({
-  //       name,
-  //       room,
-  //       picture
-  //     })
-  //   })
-  // }
-  
-  const darkTheme = useTheme()
+   }
 
-  const outerStyle = {
-    backgroundColor: darkTheme ? '#03304a' : '#1b76aa',
-    color: darkTheme ? '#00D4D4' : '#222'
-  }
-
-  const userStyle = {
-    backgroundColor: darkTheme ? '#03304a' : '#1b76aa',
-    color: darkTheme ? '#00D4D4' : '#222'
-  }
-
-  const messageStyle = {
-    backgroundColor: darkTheme ? '#03304a' : '#1b76aa',
-    color: darkTheme ? '#00D4D4' : '#222'
-  }
-  const infoStyle = {
-    backgroundColor: darkTheme ? '#022032' : '#16577d',
-    color: darkTheme ? '#E4F1FE' : '#00fa9a'
-  }
-  const logoStyle = {
-    color: darkTheme ? '#19B5FE' : '#00fa9a'
-  }
 
   
 
   return (
+      cameraMode
+      ? (
+  
+       <CameraScreen sendPhoto={sendPhoto}  setImage={setImage} submitData={submitData} handleUpload={handleUpload} setCameraMode={setCameraMode}></CameraScreen>
+        
+      )
+      : (
+        <div className="outerContainer">
+          <div className="user-container">
+              <div className="logo-head">
+                <h1 className="head" data-tip data-for="app" >Group-chat-App</h1>
+                <div className="other" data-tip data-for="other" >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                  <path fill="currentColor" d="M12 7a2 2 0 1 0-.001-4.001A2 2 0 0 0 12 7zm0 2a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 9zm0 6a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 15z">
+                  </path>
+                </svg>
+                </div>
 
-    mediaMode ?
-      cameraMode ?
-        <CameraScreen 
-          sendPhoto={sendPhoto} 
-          setImage={setImage} 
-          handleUpload={handleUpload} 
-          setMediaMode={setMediaMode}
-          setCameraMode={setCameraMode}
-        />
-      :
-        <ImageUpload 
-          sendPhoto={sendPhoto}
-          setImage={setImage}
-          handleUpload={handleUpload}
-          setMediaMode={setMediaMode} 
-        />
-    :
-    
-      <div style={outerStyle} className="outerContainer">
-        <div style={userStyle} className="user-container">
-          <div style={infoStyle} className="users-info">
-            <h2 style={logoStyle} className="logo"><u>Group-Chat</u></h2>
-            <h4>Active Chatter in Room {room}</h4>
+              </div>
+              <div className="joining-info">
+                  <h3>People in meeting room {room}</h3>
+              </div>
+              {/* <SearchBar /> */}
+              <UserContainer  users={users}/>
           </div>
-          <UserContainer  users={users}/>
+          <div className="message-container">
+              <InfoBar room={room} />
+              <Messages messages={messages}  name={name} />
+              <Input message={message} setMessage={setMessage} sendMessage={sendMessage} cameraMode={cameraMode} setCameraMode={setCameraMode} />
+              <ReactTooltip id="other" place="top" effect="solid">
+                   Features,Coming Soon!
+              </ReactTooltip>
+              <ReactTooltip id="app" place="bottom" type="info" multiline="true" effect="solid">
+                   this web app is developed and<br></br>
+                    design with ❤️ by Shahid Siddiqui,
+                    <br></br>copyright&copy;shahidSiddiqui 2020<br></br>
+                    <br></br>
+                   To know more about me <br>
+                   </br>Go to the my website<br>
+                   </br>shaid92.netlify.app
+              </ReactTooltip>
+          </div>
         </div>
-        <div style={messageStyle} className="message-container">
-            <InfoBar room={room} />
-            <Messages 
-              messages={messages}  
-              name={name} 
-            />
-            <Input 
-              message={message} 
-              setMessage={setMessage} 
-              sendMessage={sendMessage}
-              setCameraMode={setCameraMode}
-              setMediaMode = {setMediaMode} 
-            />
-            {/* <ReactTooltip id="other" place="top" effect="solid">
-                Features,Coming Soon!
-            </ReactTooltip>
-            <ReactTooltip id="app" place="bottom" type="info" multiline="true" effect="solid">
-                this web app is developed and<br></br>
-                  design with ❤️ by Shahid Siddiqui,
-                  <br></br>copyright&copy;shahidSiddiqui 2020<br></br>
-                  <br></br>
-                To know more about me <br>
-                </br>Go to the my website<br>
-                </br>shaid92.netlify.app
-            </ReactTooltip> */}
-        </div>
-      </div>
-  )
+        
+      )
+  );
 }
 
 export default Chat;
