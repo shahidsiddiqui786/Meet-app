@@ -6,11 +6,15 @@
     align-items:center;
     flex-direction:column;
     background:rgb(22, 136, 202);
+    transition: box-shadow .3s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 @media screen and ( max-width:600px ){
   .screenshot {
       width:90vw !important;
   }
+}
+.webcam {
+    height: 400px;
 }
 .uploading {
     position: absolute;
@@ -29,10 +33,13 @@
     flex-direction:column;
     background:rgb(31, 117, 167);
 }
+.camera_grid {
+    display: flex;
+    justify-content: center;
+}
 .camera-btn {
       font-size:24px;
       width:fit-content;
-      margin: 0 auto;
       margin-top:10px;
       background: gray; 
       border:none;
@@ -90,4 +97,3 @@
      cursor:pointer;
      background:red;
  }
-
