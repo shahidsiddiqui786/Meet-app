@@ -1,10 +1,7 @@
 .user-list {
   display: flex;
   flex-direction: column;
-  color:white;
-  height: 80vh;
-  background-color: rgba(6, 6, 59, 0.336);
-  border: 0.3em solid rgb(15, 14, 14);
+  transition: box-shadow .3s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 .activeContainer {
@@ -13,6 +10,7 @@
   align-items: center;
   margin-bottom: 50%;
   width: 100%;
+  transition: box-shadow .3s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 .activeItem {
@@ -20,22 +18,22 @@
   flex-direction: column;
   align-items: center;
   padding:1.0em;
-  background: rgb(6, 3, 51);
   width:100%;
+  transition: box-shadow .3s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 .user-profile {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  width: 100%;
 }
 .photo-profile {
   margin-top: 0;
   margin-bottom: 0;
   margin-left: 0;
-  width: 40px;
-  height: 40px;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
-  background-color: green;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,6 +42,7 @@
 .user-name {
   margin-right: 0;
   margin-left: 4em;
+  width: 5em;
 }
 
 .activeItem hr {
