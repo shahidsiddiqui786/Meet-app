@@ -34,8 +34,10 @@
   padding-right: 0.3em;
   padding-top: 0.6em;
 }
-.logo {
-  height: 8vh;
+.logo-head {
+  background-color: rgb(42, 71, 233);
+  height: 10vh;
+  color:rgb(243, 243, 243);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -71,6 +73,5 @@
   }
   .user-container {
     width: 0%;
-    border: hidden;
   }
 }

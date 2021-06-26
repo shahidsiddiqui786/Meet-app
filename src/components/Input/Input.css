@@ -1,17 +1,15 @@
 #send-form {
   display: flex;
+  background:rgb(6, 26, 82);
   justify-content:space-between;
 }
  #send-container {
       background-color: #1f455e;
       display: flex;
-      /* align-items: flex-end; */
-      padding-block-end: inherit;
       margin-bottom: 5px;
       border-radius: 20px;
       padding: 5px;
       width:100%;
-      transition: box-shadow .3s cubic-bezier(0.4, 0.0, 0.2, 1);
     }
   .look-button {
       font-size:24px;
@@ -21,6 +19,7 @@
       cursor:pointer;
     }
      #emoji-container {
+      background-color: blue;
       height:200px;
       display: flex;
       border-radius: 20px;
