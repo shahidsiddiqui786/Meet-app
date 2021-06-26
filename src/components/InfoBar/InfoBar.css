@@ -2,10 +2,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #0012ad;
   border-radius: 4px 4px 0 0;
   height: 60px;
   width: 100%;
+  transition: box-shadow .3s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 .leftInnerContainer {
@@ -13,7 +13,6 @@
   display: flex;
   align-items: center;
   margin-left: 5%;
-  color: white;
 }
 
 .rightInnerContainer {
@@ -21,6 +20,15 @@
   flex: 0.5;
   justify-content: flex-end;
   margin-right: 5%;
+  animation: animate 1s cubic-bezier(0.4, 0.0, 0.2, 1);
+  -webkit-animation: animate 1s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+
+@keyframes animate {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(0); }
+  100% { transform: scale(1); }
 }
 
 .onlineIcon {

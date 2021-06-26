@@ -1,8 +1,8 @@
 #emoji-grid {
-      display:flex;
-      flex-direction:row;
-      flex-wrap:wrap;
-      align-items:center;
-      height:200px;
-      overflow-y:scroll;
-    }
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  align-items:center;
+  height:200px;
+  overflow-y:scroll;
+}
